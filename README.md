@@ -64,5 +64,7 @@ Les fonctionnalités suivantes seront testées :
 - Sélection d’un client
 - Dépôt d’un colis
 
+![Modélisation de la base de données](projet-livraison-web/model-complet.png)
+
 ## License
 Ce projet est sous licence MIT.
