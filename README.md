@@ -1,7 +1,4 @@
 # projet-livraison-web
-projet-livraison-web/ projet-web-nsitermstsernin
-
-# Livraison-Manager
 
 ## Description
 Livraison-Manager est une application web permettant la gestion des livraisons de colis. Elle comprend une interface pour les livreurs et les clients, facilitant le suivi et l'affectation des colis.
