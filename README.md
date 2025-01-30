@@ -8,7 +8,7 @@ Livraison-Manager est une application web permettant la gestion des livraisons d
 
 ## Membres de l'équipe
 
-*(Ajouter les noms des développeurs ici)*
+*(Paguiel, Hristo, Gabriel)*
 
 ## Installation
 
