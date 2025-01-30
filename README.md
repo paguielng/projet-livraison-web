@@ -20,7 +20,7 @@ Devs : *(Paguiel, Hristo, Gabriel)*
 ### Étapes d'installation
 1. Cloner ce dépôt :
    ```bash
-   git clone https://github.com/paguielng/Livraison-Manager.git
+   git clone https://github.com/paguielng/projet-livraison-web.git
    ```
 2. Configurer la base de données en exécutant `creation.php`
 3. Remplir la base de données avec `remplissage.php`
