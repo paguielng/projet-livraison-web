@@ -27,24 +27,32 @@ Devs : Paguiel, [@Hristo](https://github.com/hrosters), [@Gabriel](https://githu
 
 ```
 Livraison-Manager/
+livraison/
 │── sql/
-│   ├── creation.php  # Script de création des tables
-│   ├── remplissage.php  # Insertion des données initiales
+│   ├── creation.php       # Création des tables MySQL
+│   ├── remplissage.php    # Insertion des données initiales
 │
 │── livreur/
-│   ├── livreur.php  # Sélection du livreur
-│   ├── gestion-livreur.php  # Gestion des colis du livreur
-│   ├── statut-livreur.php  # Modification du statut d'un colis
-│   ├── selection-livreur.php  # Sélection de nouveaux colis
+│   ├── livreur.php        # Sélection du livreur
+│   ├── gestion-livreur.php # Gestion des colis du livreur
+│   ├── statut-livreur.php  # Modification du statut des colis
+│   ├── selection-livreur.php # Sélection de nouveaux colis
 │
 │── client/
-│   ├── client.php  # Sélection du client
-│   ├── gestion-client.php  # Affichage des colis du client
-│   ├── depot-client.php  # Dépôt d'un nouveau colis
+│   ├── client.php         # Sélection du client
+│   ├── gestion-client.php # Suivi des colis envoyés et dépôt
+│   ├── depot-client.php   # Déposer un nouveau colis
+│
+│── includes/
+│   ├── db.php             # Connexion à la base de données
+│   ├── header.php         # En-tête commun
+│   ├── footer.php         # Pied de page commun
 │
 │── assets/
-│   ├── styles.css  # Feuilles de style
-│   ├── scripts.js  # Scripts JavaScript (si nécessaire)
+│   ├── styles.css         # Fichier CSS pour le design
+│
+│── index.php              # Page d'accueil principale
+│── README.md              # Explication du projet
 ```
 
 ## Fonctionnalités
