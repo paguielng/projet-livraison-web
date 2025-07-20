@@ -47,29 +47,29 @@ const DeliveryDashboard: React.FC = () => {
 
   if (!selectedDeliverer) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         <div className="flex items-center space-x-3">
-          <Truck className="h-8 w-8 text-primary-600" />
-          <h1 className="text-3xl font-bold text-gray-900">Espace Livreur</h1>
+          <Truck className="h-6 w-6 md:h-8 md:w-8 text-primary-600" />
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Espace Livreur</h1>
         </div>
 
         <div className="card">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">
             Sélectionnez votre profil livreur
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {mockDeliverers.map((deliverer) => (
               <button
                 key={deliverer.id}
                 onClick={() => setSelectedDeliverer(deliverer.id)}
-                className="p-4 border border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 transition-colors duration-200 text-left"
+                className="p-3 md:p-4 border border-gray-200 rounded-lg hover:border-primary-500 hover:bg-primary-50 active:bg-primary-100 transition-colors duration-200 text-left"
               >
-                <div className="font-medium text-gray-900">
+                <div className="font-medium text-gray-900 text-sm md:text-base">
                   {deliverer.prenom} {deliverer.nom}
                 </div>
-                <div className="text-sm text-gray-500">{deliverer.email}</div>
-                <div className="text-sm text-gray-500 flex items-center space-x-1">
-                  <Truck className="h-3 w-3" />
+                <div className="text-xs md:text-sm text-gray-500">{deliverer.email}</div>
+                <div className="text-xs md:text-sm text-gray-500 flex items-center space-x-1">
+                  <Truck className="h-3 w-3 md:h-4 md:w-4" />
                   <span>{deliverer.vehicule}</span>
                 </div>
               </button>
@@ -81,19 +81,19 @@ const DeliveryDashboard: React.FC = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Truck className="h-8 w-8 text-primary-600" />
+          <Truck className="h-6 w-6 md:h-8 md:w-8 text-primary-600" />
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-xl md:text-3xl font-bold text-gray-900">
               Bonjour, {deliverer?.prenom} {deliverer?.nom}
             </h1>
-            <p className="text-gray-600 flex items-center space-x-2">
+            <p className="text-sm md:text-base text-gray-600 flex items-center space-x-2">
               <span>{deliverer?.email}</span>
               <span>•</span>
               <span className="flex items-center space-x-1">
-                <Truck className="h-4 w-4" />
+                <Truck className="h-3 w-3 md:h-4 md:w-4" />
                 <span>{deliverer?.vehicule}</span>
               </span>
             </p>
@@ -101,34 +101,34 @@ const DeliveryDashboard: React.FC = () => {
         </div>
         <button
           onClick={() => setSelectedDeliverer(null)}
-          className="btn-secondary"
+          className="btn-secondary text-sm md:text-base px-3 py-2 md:px-4"
         >
           Changer de livreur
         </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-4 md:space-y-6">
           {/* Mes livraisons */}
           <div className="card">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Mes Livraisons</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">Mes Livraisons</h2>
             {assignedPackages.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
-                <Package className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                <Package className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-3 text-gray-300" />
                 <p>Aucune livraison assignée</p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 {assignedPackages.map((pkg) => {
                   const expediteur = mockClients.find(c => c.id === pkg.expediteur)
                   const destinataire = mockClients.find(c => c.id === pkg.destinataire)
                   
                   return (
-                    <div key={pkg.numero} className="border border-gray-200 rounded-lg p-4">
+                    <div key={pkg.numero} className="border border-gray-200 rounded-lg p-3 md:p-4">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center space-x-2">
-                          <Package className="h-5 w-5 text-gray-400" />
-                          <span className="font-medium">Colis #{pkg.numero}</span>
+                          <Package className="h-4 w-4 md:h-5 md:w-5 text-gray-400" />
+                          <span className="font-medium text-sm md:text-base">Colis #{pkg.numero}</span>
                         </div>
                         <div className={`px-2 py-1 rounded-full text-xs font-medium flex items-center space-x-1 ${getStatusColor(pkg.statut)}`}>
                           {getStatusIcon(pkg.statut)}
@@ -136,13 +136,13 @@ const DeliveryDashboard: React.FC = () => {
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm text-gray-600 mb-3">
                         <div className="flex items-center space-x-2">
-                          <User className="h-4 w-4" />
+                          <User className="h-3 w-3 md:h-4 md:w-4" />
                           <span>De: {expediteur?.prenom} {expediteur?.nom}</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <MapPin className="h-4 w-4" />
+                          <MapPin className="h-3 w-3 md:h-4 md:w-4" />
                           <span>Vers: {destinataire?.prenom} {destinataire?.nom}</span>
                         </div>
                         <div>
@@ -154,11 +154,11 @@ const DeliveryDashboard: React.FC = () => {
                       </div>
                       
                       <div className="flex items-center space-x-2">
-                        <label className="text-sm font-medium text-gray-700">Statut:</label>
+                        <label className="text-xs md:text-sm font-medium text-gray-700">Statut:</label>
                         <select
                           value={pkg.statut}
                           onChange={(e) => handleStatusChange(pkg.numero, e.target.value)}
-                          className="text-sm border border-gray-300 rounded px-2 py-1"
+                          className="text-xs md:text-sm border border-gray-300 rounded px-2 py-1 flex-1 md:flex-none"
                         >
                           <option value="En attente">En attente</option>
                           <option value="En cours de livraison">En cours de livraison</option>
@@ -174,47 +174,47 @@ const DeliveryDashboard: React.FC = () => {
 
           {/* Colis disponibles */}
           <div className="card">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Colis Disponibles</h2>
+            <h2 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">Colis Disponibles</h2>
             {availablePackages.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
-                <Package className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                <Package className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-3 text-gray-300" />
                 <p>Aucun colis disponible</p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 {availablePackages.map((pkg) => {
                   const expediteur = mockClients.find(c => c.id === pkg.expediteur)
                   const destinataire = mockClients.find(c => c.id === pkg.destinataire)
                   
                   return (
-                    <div key={pkg.numero} className="border border-gray-200 rounded-lg p-4">
+                    <div key={pkg.numero} className="border border-gray-200 rounded-lg p-3 md:p-4">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center space-x-2">
-                          <Package className="h-5 w-5 text-gray-400" />
-                          <span className="font-medium">Colis #{pkg.numero}</span>
+                          <Package className="h-4 w-4 md:h-5 md:w-5 text-gray-400" />
+                          <span className="font-medium text-sm md:text-base">Colis #{pkg.numero}</span>
                         </div>
                         <button
                           onClick={() => handleTakePackage(pkg.numero)}
-                          className="btn-primary text-sm"
+                          className="btn-primary text-xs md:text-sm px-3 py-2"
                         >
                           Prendre en charge
                         </button>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm text-gray-600">
                         <div className="flex items-center space-x-2">
-                          <User className="h-4 w-4" />
+                          <User className="h-3 w-3 md:h-4 md:w-4" />
                           <span>De: {expediteur?.prenom} {expediteur?.nom}</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <MapPin className="h-4 w-4" />
+                          <MapPin className="h-3 w-3 md:h-4 md:w-4" />
                           <span>Vers: {destinataire?.prenom} {destinataire?.nom}</span>
                         </div>
                         <div>
                           <span className="font-medium">Masse:</span> {pkg.masse}kg
                         </div>
                         <div>
-                          <span className="font-medium">Dimensions:</span> {pkg.longueur}×{pkg.largeur}×{pkg.hauteur}cm
+                          <span className="font-medium">Taille:</span> {pkg.longueur}×{pkg.largeur}×{pkg.hauteur}cm
                         </div>
                       </div>
                     </div>
@@ -225,24 +225,24 @@ const DeliveryDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <div className="card">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">Statistiques</h3>
-            <div className="space-y-3">
+            <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-3">Statistiques</h3>
+            <div className="space-y-2 md:space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-600">Colis assignés</span>
+                <span className="text-sm md:text-base text-gray-600">Colis assignés</span>
                 <span className="font-medium">{assignedPackages.length}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">En cours</span>
+                <span className="text-sm md:text-base text-gray-600">En cours</span>
                 <span className="font-medium">{assignedPackages.filter(p => p.statut === 'En cours de livraison').length}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Livrés</span>
+                <span className="text-sm md:text-base text-gray-600">Livrés</span>
                 <span className="font-medium">{assignedPackages.filter(p => p.statut === 'Livré').length}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Disponibles</span>
+                <span className="text-sm md:text-base text-gray-600">Disponibles</span>
                 <span className="font-medium">{availablePackages.length}</span>
               </div>
             </div>
